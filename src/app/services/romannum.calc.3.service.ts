@@ -7,7 +7,6 @@ import { RomannumCalc1Service } from './romannum.calc.1.service'
 })
 export class RomannumCalc3Service extends RomannumCalc1Service implements IRomannumCalculator {
 
-	// overriding super class method
 	override str2num(inputStr: string): number {
 		let num = 0, index = 0, sameLetter = 0,
 			currentChar: string, nextChar: string, currentCharPosition: number,

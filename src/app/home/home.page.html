@@ -41,7 +41,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-button type="submit" [disabled]="!romannumForm.valid">Calculate</ion-button>
+        <ion-button id="calc-button" type="submit" [disabled]="!romannumForm.valid">Calculate</ion-button>
       </ion-item>
 
       <ion-radio-group formControlName="calc" (ionChange)="calculatorChange($event)">
@@ -74,4 +74,4 @@
 </ion-content>
 
 
-<app-child-page></app-child-page>
+<app-child-page [calculator]="romannumForm.value.calc!" (sampleEvent)="inputSample($event)"></app-child-page>

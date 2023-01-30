@@ -9,6 +9,8 @@ import { RomannumCalc3Service } from '../services/romannum.calc.3.service';
 import { RomannumCalcExService } from '../services/romannum.calc.ex.service';
 import { ChannelsService } from '../services/channels.service';
 
+import {Sample} from './child-page.component'
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -98,5 +100,12 @@ export class HomePage {
       }
       return null;
     }
+  }
+
+  inputSample(sample:Sample) {
+    this.romannumForm.patchValue ({
+      num1: sample.num1,
+      num2: sample.num2
+    });
   }
 }

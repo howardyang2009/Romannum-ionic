@@ -1,7 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { ChannelsService } from '../services/channels.service';
+
+export interface Sample {
+  num1: string,
+  num2: string
+}
 
 @Component({
   selector: 'app-child-page',
@@ -15,8 +20,9 @@ import { ChannelsService } from '../services/channels.service';
 </ion-header>
 <!-- <ion-content [fullscreen]="false"> -->
     <ion-item>
-    <!-- <p>child-page works!</p> -->
-      <ion-label>{{message}}</ion-label>
+      <p>{{calculator}}</p>
+      <ion-button id = 'sample-button' type="button" (click)="inputSample()">Input Sample Roman Number</ion-button>
+      <ion-label id = 'message'>{{message}}</ion-label>
     </ion-item>
 <!-- </ion-content> -->
   `,
@@ -24,6 +30,8 @@ import { ChannelsService } from '../services/channels.service';
   ]
 })
 export class ChildPageComponent implements OnInit, OnDestroy {
+  @Input() calculator:string = '';
+  @Output() sampleEvent = new EventEmitter<Sample>();
 
   private notifier = new Subject<void>();
 
@@ -42,4 +50,7 @@ export class ChildPageComponent implements OnInit, OnDestroy {
     this.notifier.complete();
   }
 
+  inputSample() {
+    this.sampleEvent.emit({num1: 'V', num2: 'IV'});
+  }
 }
