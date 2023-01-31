@@ -70,7 +70,7 @@ export class HomePage {
   }
 
   romannumInputChange(event: any) {
-    console.log(event);
+    // console.log(event);
     this.romannumForm.patchValue({ sum: '' })
   }
 

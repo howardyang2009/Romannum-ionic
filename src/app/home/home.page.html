@@ -73,8 +73,12 @@
     <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
         href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+    
+    <app-child-page [calculator]="romannumForm.value.calc!" (sampleEvent)="inputSample($event)"></app-child-page>
   </div>
+
+
 </ion-content>
 
 
-<app-child-page [calculator]="romannumForm.value.calc!" (sampleEvent)="inputSample($event)"></app-child-page>

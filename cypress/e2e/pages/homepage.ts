@@ -9,7 +9,7 @@ class HomePage {
     constructor() {}
 
     navigateTo() {
-        cy.visit('home')
+        cy.visit('tabs/home')
     }
 
     setNum1(romannum1: string) {
