@@ -6,13 +6,13 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ChannelsService {
 
-  private _romannumCalcResult$ = new BehaviorSubject<string>('');
-  romannumCalcResult$ = this._romannumCalcResult$.asObservable();
+  private romannumcalcmessage$ = new BehaviorSubject<string>('');
+  romannumCalcMessage$ = this.romannumcalcmessage$.asObservable();
 
   constructor() { }
   
-  setRomannumCalcResult(message:string) {
-    this._romannumCalcResult$.next(message);
+  setRomannumCalcMessage(message:string) {
+    this.romannumcalcmessage$.next(message);
   }
 
 }

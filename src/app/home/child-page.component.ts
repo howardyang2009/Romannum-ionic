@@ -40,7 +40,7 @@ export class ChildPageComponent implements OnInit, OnDestroy {
   constructor(private channel: ChannelsService) { }
 
   ngOnInit() {
-    this.channel.romannumCalcResult$
+    this.channel.romannumCalcMessage$
       .pipe(takeUntil(this.notifier))
       .subscribe((m: string) => this.message = m);
   }

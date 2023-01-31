@@ -7,11 +7,10 @@ import HomePage from './pages/homepage'
 // })
 
 describe('HomePage', () => {
+  let home: HomePage;
+  beforeEach(() => { home = new HomePage(); home.navigateTo(); });
+
   it('CalculateButton-OK', () => {
-    const home = new HomePage();
-
-    home.navigateTo();
-
     home.setNum1('III');
     home.setNum2('V');
 
@@ -29,10 +28,6 @@ describe('HomePage', () => {
   })
 
   it('RomannumSampleButton-OK', () => {
-    const home = new HomePage();
-    
-    home.navigateTo();
-
     home.clickRomannumSampleButton()
 
     home.getNum1().should(($num1) => {
