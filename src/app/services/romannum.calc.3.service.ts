@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { IRomannumCalculator } from '../service-interfaces/i.romannum.calculator'
 import { RomannumCalc1Service } from './romannum.calc.1.service'
 
-@Injectable({
-	providedIn: 'root'
-})
+@Injectable()
 export class RomannumCalc3Service extends RomannumCalc1Service implements IRomannumCalculator {
 
 	override str2num(inputStr: string): number {

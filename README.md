@@ -33,5 +33,5 @@ Roman Number Calculator
 
 ### open xcode
 ```sh
-    $ npx cap run ios
+    $ npx cap open ios
 ```

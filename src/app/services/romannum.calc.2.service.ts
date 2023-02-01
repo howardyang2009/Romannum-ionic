@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import {IRomannumCalculator} from '../service-interfaces/i.romannum.calculator'
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RomannumCalc2Service implements IRomannumCalculator {
 
   private lookup: Record<string, number> = { 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000 };

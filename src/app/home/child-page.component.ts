@@ -22,15 +22,15 @@ export interface Sample {
     <ion-item>
       <p>{{calculator}}</p>
       <ion-button id = 'sample-button' type="button" (click)="inputSample()">Input Sample Roman Number</ion-button>
-      <ion-label id = 'message'>{{message}}</ion-label>
     </ion-item>
+    <ion-item><ion-label id = 'message'>{{message}}</ion-label></ion-item>
 <!-- </ion-content> -->
   `,
   styles: [
   ]
 })
 export class ChildPageComponent implements OnInit, OnDestroy {
-  @Input() calculator:string = '';
+  @Input() calculator!:string;
   @Output() sampleEvent = new EventEmitter<Sample>();
 
   private notifier = new Subject<void>();

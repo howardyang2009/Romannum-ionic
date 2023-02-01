@@ -19,19 +19,19 @@ import { Sample } from './child-page.component'
 export class HomePage {
   title: string = 'Roman Number Calculator';
 
-  error1: string = 'error1';
-  error2: string = 'error2';
-  error3: string = 'error3';
+  error1!: string;
+  error2!: string;
+  error3!: string;
 
-  private calculator: IRomannumCalculator = this.romannumCalc1;
-  help1: string = 'helper1';
-  help2: string = 'helper2';
+  private calculator!: IRomannumCalculator;
+  help1!: string;
+  help2!: string;
 
   romannumForm = new FormGroup({
     num1: new FormControl('', [this.romannumValidator(1)]),
     num2: new FormControl('', [this.romannumValidator(2)]),
     sum: new FormControl('', [this.romannumValidator(3)]),
-    calc: new FormControl('RomanNumCalc1')
+    calc: new FormControl('RomanNumCalc3')
   });
 
   constructor(

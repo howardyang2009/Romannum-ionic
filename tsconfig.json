@@ -31,5 +31,4 @@
     "strictTemplates": true
   },
   "include": ["src/**/*"],
-  "exclude": ["cypress/**/*"]
 }

@@ -23,7 +23,7 @@ describe('HomePage', () => {
 
     home.getMessage().should(($message) => {
       const val = $message.text()
-      expect(val).to.equal('RomanNumCalc1 : III + V = VIII | 3 + 5 = 8')
+      expect(val).to.equal('RomanNumCalc3 : III + V = VIII | 3 + 5 = 8')
     })
   })
 

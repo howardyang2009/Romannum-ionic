@@ -6,12 +6,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="false">
-  <ion-header collapse="condense">
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">{{title}}</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
   <div id="container">
     <form [formGroup]="romannumForm" (ngSubmit)="calc()">
@@ -70,11 +70,11 @@
       </ion-list>
     </form>
 
-    <strong>Ready to create an app?</strong>
+    <!-- <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components">UI Components</a></p>
+        href="https://ionicframework.com/docs/components">UI Components</a></p> -->
 
-    
+    <ion-item></ion-item>
     <app-child-page [calculator]="romannumForm.value.calc!" (sampleEvent)="inputSample($event)"></app-child-page>
   </div>
 
