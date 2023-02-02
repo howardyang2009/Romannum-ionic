@@ -3,6 +3,7 @@ Roman Number Calculator
 
 ### prepare
 ```sh
+    $ npm install -g @ionic/cli
     $ npm install
 ```
 
