@@ -36,3 +36,8 @@ Roman Number Calculator
 ```sh
     $ npx cap open ios
 ```
+
+### open androidstudio
+```sh
+    $ npx cap open android
+```
