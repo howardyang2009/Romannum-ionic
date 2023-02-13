@@ -1,7 +1,15 @@
 {
   "name": "myApp",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "enterprise": {
+      "keyId": 11823,
+      "productKey": "key_5cb19a9db50741a2827ad58bc5a4f6d2",
+      "appId": "1fa63d38",
+      "registries": [
+        "@ionic-enterprise;https://registry.ionicframework.com/"
+      ]
+    }
   },
   "type": "angular"
 }

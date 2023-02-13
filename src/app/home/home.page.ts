@@ -76,11 +76,11 @@ export class HomePage {
 
   romannumValidator(id: number): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      try {
-        const temp = control.value;
-        if (!temp)
-          return null;
+      const temp = control.value;
+      if (!temp)
+        return null;
 
+      try {
         this.calculator.str2num(temp);
       } catch (err: any) {
         if (id == 1)
@@ -90,6 +90,7 @@ export class HomePage {
 
         return { invalidromannum: { value: control.value } };
       }
+      
       return null;
     }
   }
