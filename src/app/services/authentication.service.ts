@@ -3,7 +3,7 @@ import { IonicAuth, IonicAuthOptions } from '@ionic-enterprise/auth';
 import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 
-const auth0CapacitorConfig : IonicAuthOptions = {
+const auth0CapacitorConfig: IonicAuthOptions = {
   // the auth provider
   authConfig: 'auth0',
   // The platform which we are running on
@@ -29,7 +29,7 @@ const auth0CapacitorConfig : IonicAuthOptions = {
   iosWebView: 'private'
 };
 
-const auth0WebConfig : IonicAuthOptions = {
+const auth0WebConfig: IonicAuthOptions = {
   // the auth provider
   authConfig: 'auth0',
   // The platform which we are running on
@@ -62,6 +62,8 @@ const auth0WebConfig : IonicAuthOptions = {
 export class AuthenticationService extends IonicAuth {
   private router: Router;
 
+  private token: string = '';
+
   constructor(platform: Platform, router: Router) {
     // Determine whether to run on mobile or the web
     const selectedConfig = platform.is('capacitor') ? auth0CapacitorConfig : auth0WebConfig;
@@ -74,11 +76,16 @@ export class AuthenticationService extends IonicAuth {
   }
 
   override onLoginSuccess() {
+    this.getAccessToken().then(t => this.token = t!);
     this.router.navigate(['tabs/auth']);
   }
 
   override onLogout() {
     this.router.navigate(['tabs/auth']);
+  }
+
+  getToken() {
+    return this.token;
   }
 }
 

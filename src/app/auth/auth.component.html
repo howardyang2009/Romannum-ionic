@@ -18,11 +18,21 @@
       <ion-avatar>
         <img src="{{ user.picture }}">
       </ion-avatar>
-    
-      <p>{{ user.name}}</p> 
+
+      <p>{{ user.name}}</p>
       <p>{{ user.email }}</p>
     </div>
-    
+
     <ion-button expand="block" (click)="logout();">Log out</ion-button>
+
+    <ion-button expand="block" (click)="getApi();">Call API</ion-button>
+    <div class="result-block-container" *ngIf="responseJson">
+      <div class="result-block" [ngClass]="{ show: !!responseJson }">
+        <h6 class="muted">Result</h6>
+        <pre>
+          <code class="js rounded" [highlight]="responseJson"></code>
+        </pre>
+      </div>
+    </div>
   </div>
 </ion-content>

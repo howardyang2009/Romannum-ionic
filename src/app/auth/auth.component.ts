@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { LoadingController } from '@ionic/angular';
+import { ApiService } from '../services/api.service'
 
 @Component({
   selector: 'app-auth',
@@ -12,7 +13,10 @@ export class AuthComponent implements OnInit {
 
   errorMessage!: string;
 
-  constructor(private authService: AuthenticationService, private loadingController: LoadingController) {}
+  responseJson!: string;
+  hasApiError = false;
+
+  constructor(private authService: AuthenticationService, private loadingController: LoadingController, private api: ApiService,) { }
 
   async ngOnInit() {
     // If coming back after logging into Auth0,
@@ -52,6 +56,16 @@ export class AuthComponent implements OnInit {
 
   async logout() {
     await this.authService.logout();
+  }
+
+  getApi() {
+    this.api.get$().subscribe({
+      next: (res) => {
+        this.hasApiError = false;
+        this.responseJson = JSON.stringify(res, null, 2).trim();
+      },
+      error: () => this.hasApiError = true,
+    });
   }
 
 }
