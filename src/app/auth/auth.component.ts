@@ -58,8 +58,8 @@ export class AuthComponent implements OnInit {
     await this.authService.logout();
   }
 
-  getApi() {
-    this.api.get$().subscribe({
+  callApi() {
+    this.api.getWeather$().subscribe({
       next: (res) => {
         this.hasApiError = false;
         this.responseJson = JSON.stringify(res, null, 2).trim();

@@ -25,7 +25,7 @@
 
     <ion-button expand="block" (click)="logout();">Log out</ion-button>
 
-    <ion-button expand="block" (click)="getApi();">Call API</ion-button>
+    <ion-button expand="block" (click)="callApi();">Call API</ion-button>
     <div class="result-block-container" *ngIf="responseJson">
       <div class="result-block" [ngClass]="{ show: !!responseJson }">
         <h6 class="muted">Result</h6>

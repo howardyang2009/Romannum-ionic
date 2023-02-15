@@ -12,7 +12,7 @@ export class ApiService {
 
   constructor(private http: HttpClient, private auth: AuthenticationService) { }
 
-  get$(): Observable<any> {
+  getWeather$(): Observable<any> {
     const token: string = this.auth.getToken();
 
     const header = {
