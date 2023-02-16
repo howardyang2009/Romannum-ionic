@@ -72,7 +72,7 @@ const azureWebConfig: IonicAuthOptions = {
   // requested scopes from provider
   scope: 'openid offline_access email profile https://howardyanghomeb2c.onmicrosoft.com/c9220542-4beb-4519-9b07-c0469c3a0068/read:weather',
   // the audience, if applicable
-  // audience: 'https://afs-oca-apim-tryit.azure-api.net/WeatherForecast',
+  audience: 'c9220542-4beb-4519-9b07-c0469c3a0068',
   // the URL to redirect to after log out
   logoutUrl: 'http://localhost:8100/tabs/auth',
   implicitLogin: 'CURRENT'
@@ -93,7 +93,7 @@ const azureCapacitorConfig: IonicAuthOptions = {
   // requested scopes from provider
   scope: 'openid offline_access email profile https://howardyanghomeb2c.onmicrosoft.com/c9220542-4beb-4519-9b07-c0469c3a0068/read:weather',
   // the audience, if applicable
-  // audience: 'https://afs-oca-apim-tryit.azure-api.net/WeatherForecast',
+  audience: 'c9220542-4beb-4519-9b07-c0469c3a0068',
   // the URL to redirect to after log out
   logoutUrl: 'io.ionic.howardyang2009.20230214://tabs/auth',
   // The type of iOS webview to use. 'shared' will use a webview that can share session/cookies
