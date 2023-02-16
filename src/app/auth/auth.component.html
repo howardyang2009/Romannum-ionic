@@ -5,12 +5,10 @@
 </ion-header>
 
 <ion-content>
+
   <div class="ion-text-center ion-padding" *ngIf="!user">
     <p style="text-align:center">Please sign into your account:</p>
     <ion-button class="ion-padding" expand="block" (click)="login()" size="large">Log In</ion-button>
-    <p class="error">
-      {{errorMessage}}
-    </p>
   </div>
 
   <div class="ion-padding" *ngIf="user">
@@ -35,4 +33,11 @@
       </div>
     </div>
   </div>
+
+  <div class="ion-padding">
+    <p class="error">
+      {{errorMessage}}
+    </p>
+  </div>
+
 </ion-content>

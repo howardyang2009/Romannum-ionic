@@ -14,7 +14,6 @@ export class AuthComponent implements OnInit {
   errorMessage!: string;
 
   responseJson!: string;
-  hasApiError = false;
 
   constructor(private authService: AuthenticationService, private loadingController: LoadingController, private api: ApiService,) { }
 
@@ -61,10 +60,10 @@ export class AuthComponent implements OnInit {
   callApi() {
     this.api.getWeather$().subscribe({
       next: (res) => {
-        this.hasApiError = false;
+        this.errorMessage = '';
         this.responseJson = JSON.stringify(res, null, 2).trim();
       },
-      error: () => this.hasApiError = true,
+      error: (e: any) => this.errorMessage = e.message,
     });
   }
 
