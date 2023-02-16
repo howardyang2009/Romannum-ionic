@@ -12,8 +12,8 @@ export class ApiService {
 
   constructor(private http: HttpClient, private auth: AuthenticationService) { }
 
-  getWeather$(): Observable<any> {
-    const token: string = this.auth.getToken();
+  async getWeather$(): Promise<Observable<any>> {
+    const token = await this.auth.getAccessToken();
 
     const header = {
       headers: new HttpHeaders()

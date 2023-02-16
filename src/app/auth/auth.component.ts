@@ -58,13 +58,15 @@ export class AuthComponent implements OnInit {
   }
 
   callApi() {
-    this.api.getWeather$().subscribe({
-      next: (res) => {
-        this.errorMessage = '';
-        this.responseJson = JSON.stringify(res, null, 2).trim();
-      },
-      error: (e: any) => this.errorMessage = e.message,
-    });
+    this.api.getWeather$().then(
+      response => response.subscribe({
+        next: (res) => {
+          this.errorMessage = '';
+          this.responseJson = JSON.stringify(res, null, 2).trim();
+        },
+        error: (e: any) => this.errorMessage = e.message,
+      })
+    );
   }
 
 }

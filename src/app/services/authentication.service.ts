@@ -111,8 +111,6 @@ const azureCapacitorConfig: IonicAuthOptions = {
 export class AuthenticationService extends IonicAuth {
   private router: Router;
 
-  private token: string = '';
-
   constructor(platform: Platform, router: Router) {
     // Determine whether to run on mobile or the web
     // const selectedConfig = platform.is('hybrid') ? auth0CapacitorConfig : auth0WebConfig;
@@ -126,7 +124,6 @@ export class AuthenticationService extends IonicAuth {
   }
 
   override onLoginSuccess() {
-    this.getAccessToken().then(t => this.token = t!);
     this.router.navigate(['tabs/auth']);
   }
 
@@ -134,8 +131,5 @@ export class AuthenticationService extends IonicAuth {
     this.router.navigate(['tabs/auth']);
   }
 
-  getToken() {
-    return this.token;
-  }
 }
 
