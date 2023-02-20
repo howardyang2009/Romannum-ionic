@@ -30,7 +30,7 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
     <key>CFBundleURLSchemes</key>
     <array>
-        <string>com.riverty.myapp.20230212</string>
+        <string>io.ionic.howardyang2009.20230214</string>
     </array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

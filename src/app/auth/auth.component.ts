@@ -37,10 +37,21 @@ export class AuthComponent implements OnInit {
       }
     }
 
+    // const url = window.location.href;
+    // if (
+    //   url.includes("state=") &&
+    //   (url.includes("error=") || url.includes("code="))
+    // ) {
+    //   await this.authService.handleCallback(url);
+    //   // .pipe(mergeMap(() => Browser.close()))
+    //   // .subscribe();
+    // }
+
     this.user = await this.authService.getUserInfo();
   }
 
   async login() {
+    this.errorMessage = "";
     const loadingIndicator = await this.showLoadingIndictator(
       "Opening login window..."
     );
@@ -54,11 +65,13 @@ export class AuthComponent implements OnInit {
   }
 
   async logout() {
+    this.errorMessage = "";
     const loadingIndicator = await this.showLoadingIndictator(
       "Opening logout window..."
     );
     try {
       await this.authService.logout();
+      this.user = undefined;
     } catch (e: any) {
       this.errorMessage = e.message;
     } finally {
@@ -67,13 +80,13 @@ export class AuthComponent implements OnInit {
   }
 
   async callApi() {
+    this.errorMessage = "";
     const loadingIndicator = await this.showLoadingIndictator("calling API...");
     try {
       const response = await this.api.getWeather$();
       response
         .subscribe({
           next: (res) => {
-            this.errorMessage = "";
             this.responseJson = JSON.stringify(res, null, 2).trim();
           },
           error: (e: any) => (this.errorMessage = e.message),

@@ -102,7 +102,7 @@ const azureCapacitorConfig: IonicAuthOptions = {
   // the audience, if applicable
   audience: "c9220542-4beb-4519-9b07-c0469c3a0068",
   // the URL to redirect to after log out
-  logoutUrl: "io.ionic.howardyang2009.20230214://tabs/auth?logout=true",
+  logoutUrl: "io.ionic.howardyang2009.20230214://tabs/auth",
   // The type of iOS webview to use. 'shared' will use a webview that can share session/cookies
   // on iOS to provide SSO across multiple apps but will cause a prompt for the user which asks them
   // to confirm they want to share site data with the app. 'private' uses a webview which will not
