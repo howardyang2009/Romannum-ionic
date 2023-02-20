@@ -5,25 +5,30 @@
 </ion-header>
 
 <ion-content>
-
   <div class="ion-text-center ion-padding" *ngIf="!user">
-    <p style="text-align:center">Please sign into your account:</p>
-    <ion-button class="ion-padding" expand="block" (click)="login()" size="large">Log In</ion-button>
+    <p style="text-align: center">Please sign into your account:</p>
+    <ion-button
+      class="ion-padding"
+      expand="block"
+      (click)="login()"
+      size="large"
+      >Log In</ion-button
+    >
   </div>
 
   <div class="ion-padding" *ngIf="user">
     <div align="center">
       <ion-avatar>
-        <img src="{{ user.picture }}">
+        <img src="{{ user.picture }}" />
       </ion-avatar>
 
-      <p>{{ user.name}}</p>
+      <p>{{ user.name }}</p>
       <p>{{ user.email }}</p>
     </div>
 
-    <ion-button expand="block" (click)="logout();">Log out</ion-button>
+    <ion-button expand="block" (click)="logout()">Log out</ion-button>
 
-    <ion-button expand="block" (click)="callApi();">Call API</ion-button>
+    <ion-button expand="block" (click)="callApi()">Call API</ion-button>
     <div class="result-block-container" *ngIf="responseJson">
       <div class="result-block" [ngClass]="{ show: !!responseJson }">
         <h6 class="muted">Result</h6>
@@ -34,10 +39,9 @@
     </div>
   </div>
 
-  <div class="ion-padding">
+  <div class="ion-padding" *ngIf="errorMessage">
     <p class="error">
-      {{errorMessage}}
+      {{ errorMessage }}
     </p>
   </div>
-
 </ion-content>

@@ -1,23 +1,28 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl, AbstractControl, ValidationErrors } from '@angular/forms';
-import { Validators, ValidatorFn } from '@angular/forms';
+import { Component } from "@angular/core";
+import {
+  FormGroup,
+  FormControl,
+  AbstractControl,
+  ValidationErrors,
+} from "@angular/forms";
+import { Validators, ValidatorFn } from "@angular/forms";
 
-import { IRomannumCalculator } from '../service-interfaces/i.romannum.calculator';
-import { RomannumCalc1Service } from '../services/romannum.calc.1.service';
-import { RomannumCalc2Service } from '../services/romannum.calc.2.service';
-import { RomannumCalc3Service } from '../services/romannum.calc.3.service';
-import { RomannumCalcExService } from '../services/romannum.calc.ex.service';
-import { ChannelsService } from '../services/channels.service';
+import { IRomannumCalculator } from "../service-interfaces/i.romannum.calculator";
+import { RomannumCalc1Service } from "../services/romannum.calc.1.service";
+import { RomannumCalc2Service } from "../services/romannum.calc.2.service";
+import { RomannumCalc3Service } from "../services/romannum.calc.3.service";
+import { RomannumCalcExService } from "../services/romannum.calc.ex.service";
+import { ChannelsService } from "../services/channels.service";
 
-import { Sample } from './child-page.component'
+import { Sample } from "./child-page.component";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: "app-home",
+  templateUrl: "home.page.html",
+  styleUrls: ["home.page.scss"],
 })
 export class HomePage {
-  title: string = 'Roman Number Calculator';
+  title: string = "Roman Number Calculator";
 
   error1!: string;
   error2!: string;
@@ -28,10 +33,10 @@ export class HomePage {
   help2!: string;
 
   romannumForm = new FormGroup({
-    num1: new FormControl('', [this.romannumValidator(1)]),
-    num2: new FormControl('', [this.romannumValidator(2)]),
-    sum: new FormControl('', [this.romannumValidator(3)]),
-    calc: new FormControl('RomanNumCalc3')
+    num1: new FormControl("", [this.romannumValidator(1)]),
+    num2: new FormControl("", [this.romannumValidator(2)]),
+    sum: new FormControl("", [this.romannumValidator(3)]),
+    calc: new FormControl("RomanNumCalc3"),
   });
 
   constructor(
@@ -66,61 +71,57 @@ export class HomePage {
 
   calculatorChange(event: any) {
     //console.log(event);
-    this.init()
+    this.init();
   }
 
   romannumInputChange(event: any) {
     // console.log(event);
-    this.romannumForm.patchValue({ sum: '' })
+    this.romannumForm.patchValue({ sum: "" });
   }
 
   romannumValidator(id: number): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const temp = control.value;
-      if (!temp)
-        return null;
+      if (!temp) return null;
 
       try {
         this.calculator.str2num(temp);
       } catch (err: any) {
-        if (id == 1)
-          this.error1 = err.message;
-        else if (id == 2)
-          this.error2 = err.message;
+        if (id == 1) this.error1 = err.message;
+        else if (id == 2) this.error2 = err.message;
 
         return { invalidromannum: { value: control.value } };
       }
-      
+
       return null;
-    }
+    };
   }
 
   inputSample(sample: Sample) {
     this.romannumForm.patchValue({
       num1: sample.num1,
-      num2: sample.num2
+      num2: sample.num2,
     });
   }
 
   private init() {
     this.romannumForm.patchValue({
-      num1: '',
-      num2: '',
-      sum: ''
+      num1: "",
+      num2: "",
+      sum: "",
     });
 
-    if (this.romannumForm.value.calc === 'RomanNumCalc1')
+    if (this.romannumForm.value.calc === "RomanNumCalc1")
       this.calculator = this.romannumCalc1;
-    else if (this.romannumForm.value.calc === 'RomanNumCalc2')
+    else if (this.romannumForm.value.calc === "RomanNumCalc2")
       this.calculator = this.romannumCalc2;
-    else if (this.romannumForm.value.calc === 'RomanNumCalc3')
+    else if (this.romannumForm.value.calc === "RomanNumCalc3")
       this.calculator = this.romannumCalc3;
-    else
-      this.calculator = this.romannumCalcEx
+    else this.calculator = this.romannumCalcEx;
 
     this.help1 = this.calculator.letters();
     this.help2 = this.calculator.letters();
 
-    this.channel.setRomannumCalcMessage('');
+    this.channel.setRomannumCalcMessage("");
   }
 }
