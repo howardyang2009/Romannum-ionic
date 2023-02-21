@@ -23,7 +23,7 @@ const auth0CapacitorConfig: IonicAuthOptions = {
   audience: "https://afs-oca-apim-tryit.azure-api.net/WeatherForecast",
   // the URL to redirect to after log out
   logoutUrl:
-    "io.ionic.howardyang2009.20230214://dev-zz6l6vh5zbtvl46m.us.auth0.com/capacitor/io.ionic.howardyang2009.20230214/tabs/auth?logout=true",
+    "io.ionic.howardyang2009.20230214://dev-zz6l6vh5zbtvl46m.us.auth0.com/capacitor/io.ionic.howardyang2009.20230214/tabs/auth",
   // The type of iOS webview to use. 'shared' will use a webview that can share session/cookies
   // on iOS to provide SSO across multiple apps but will cause a prompt for the user which asks them
   // to confirm they want to share site data with the app. 'private' uses a webview which will not
@@ -119,12 +119,12 @@ export class AuthenticationService extends IonicAuth {
 
   constructor(platform: Platform, router: Router) {
     // Determine whether to run on mobile or the web
-    // const selectedConfig = platform.is("hybrid")
-    //   ? auth0CapacitorConfig
-    //   : auth0WebConfig;
     const selectedConfig = platform.is("hybrid")
-      ? azureCapacitorConfig
-      : azureWebConfig;
+      ? auth0CapacitorConfig
+      : auth0WebConfig;
+    // const selectedConfig = platform.is("hybrid")
+    //   ? azureCapacitorConfig
+    //   : azureWebConfig;
     super(selectedConfig);
     this.router = router;
   }
