@@ -10,7 +10,7 @@
 ### start dev
 
 ```sh
-    $ ionic serve
+    $ ionic serve --ssl
 ```
 
 ### start unit test
